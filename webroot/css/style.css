@@ -106,11 +106,13 @@ strong, strong a {
 /* HEADER
 ========================================================================= */
 header {
+    border-top: 13px solid #95927F;
 	background: url('../img/header-row-2.png');
 }
 .header-row-1 {
-	background: url('../img/header-row-1.png') repeat-x;
-	padding-bottom:8px;
+    padding-top:12px;
+	/*background: url('../img/header-row-1.png') repeat-x;*/
+	padding-bottom:12px;
 }
 nav {
 	float:left;
@@ -118,6 +120,24 @@ nav {
 	padding-top:53px;
 	padding-bottom:8px;
 }
+
+.login {
+    position: absolute;
+    color: #fff;
+    font-size: 12pt;
+    left: 800px;
+}
+
+.login a {
+    color: #fff;
+}
+
+.login a:hover {
+    color: #A3BE2E;
+    text-decoration: underline;
+}
+
+
 	
 /* CONTENT
 ========================================================================= */
@@ -614,5 +634,18 @@ footer {
 		width: 200px;
 	}
 }
-/* Project specifics =========================================================== */
-/* Pour some CSS below ========================================================= */
+
+/* Register
+========================================================================= */
+.register{
+    color: #000;
+}
+
+.register fieldset table label {
+    text-align: right;
+}
+
+.register table .error-message{
+    float: right;
+    color: #ff0000;
+}

@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width; initial-scale=1.0" />
     <?php
       echo $this->Html->css(['style.css']);
+      echo $this->Html->css(['font-awesome.min.css']);
       echo $this->Html->script(['jquery-1.7.2.min.js', 'superfish.js']);
       echo $this->Html->script(['jquery.flexslider-min.js']);
       echo $this->Html->script(['jquery.responsivemenu.js']);
@@ -49,8 +50,10 @@
 <header>
     <div class="header-row-1">
         <div class="container_24">
+            <div class="login"><i class="fa fa-user"></i> <?php echo $this->Html->link('Login', ['prefix'=>false,'controller'=>'users','action'=>'login']); ?> |
+            <?php echo $this->Html->link(' Register', ['prefix'=>false,'controller'=>'users','action'=>'register']); ?></div>
             <div>
-                <h1><a href="index.php">Excel Migration Services</a></h1>
+                <h1><?= $this->Html->link('Excel Migration Services', ['controller'=>'pages', 'action' => 'home']) ?></h1>
                 <!-- menu -->
                 <nav>
                     <div id="menu-icon">Menu</div>
@@ -105,7 +108,8 @@
             </div>
         </div>
     </div>
-</footer><!-- end footer -->
+</footer>
+<!-- end footer -->
 
 </body>
 

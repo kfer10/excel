@@ -147,7 +147,7 @@ ul.sf-menu li li li.sfHover ul {
 		cursor: pointer;
 		display: block;
 		padding: 64px 13px 15px 13px;
-		background-color:#c92d01;
+		background-color:#A3BE2E;
 		font-size:16px;
 		font-family:Arial, sans-serif;
 	}
@@ -159,7 +159,7 @@ ul.sf-menu li li li.sfHover ul {
 		width: 180px;
 		z-index: 10000;
 		display: none; /* visibility will be toggled with jquery */
-		background-color:#cd5837;
+		background-color:#A3BE2E;
 		padding:15px 0 10px 0;
 	}
 	.sf-menu li {
@@ -186,7 +186,7 @@ ul.sf-menu li li li.sfHover ul {
 		padding: 0;
 		width:180px;
 		background:none;
-		background-color:#cd5837;
+		background-color:#A3BE2E;
 	}
 	.sf-menu li {margin:0;}
 	.sf-menu li li a {

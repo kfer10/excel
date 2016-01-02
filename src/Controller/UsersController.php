@@ -38,12 +38,51 @@ class UsersController extends AppController
         $this->set('_serialize', ['user']);
     }
 
+    public function login()
+    {
+        $this->loadModel('Memberships');
+        if ($this->request->is('post')) {
+            $user = $this->Auth->identify();
+            $user_id = $this->request->session()->read('Auth.User.id');
+            //  $isEmpty = $user->isEmpty();
+            if ($user) {
+                $memberships = TableRegistry::get('Memberships');
+                $user_details = $memberships->find()
+                    ->where(['user_id' => $user['id']])
+                    ->orderDesc('id')
+                    ->first();
+
+                if ($user_details) {
+                    if ($user_details->status_id == 1) {
+                        $this->Auth->setUser($user);
+
+                        if ($user['user_type_id'] === 1) {
+                            return $this->redirect($this->Auth->redirectUrl(['controller' => 'admin/users', 'action' => 'index']));
+                        } else {
+                            return $this->redirect($this->Auth->redirectUrl(['controller' => 'users', 'action' => 'home']));
+
+                        }
+                    } elseif ($user_details->status_id != 1) {
+                        $this->Auth->setUser($user);
+                        $this->Flash->error('Your Membership has expired, Please follow the steps to Renew.');
+                        return $this->redirect(['controller' => 'users', 'action' => 'renew']);
+                    }
+
+                }
+
+
+            } elseif (!$user) {
+                $this->Flash->error('Incorrect Email Address or Password');
+            }
+        }
+    }
+
     /**
      * Add method
      *
      * @return void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function register()
     {
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {

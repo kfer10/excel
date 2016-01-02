@@ -52,6 +52,7 @@ class PagesController extends AppController
             $subpage = $path[1];
         }
         $this->set(compact('page', 'subpage'));
+        $this->viewBuilder()->layout('default');
 
         try {
             $this->render(implode('/', $path));
@@ -62,4 +63,6 @@ class PagesController extends AppController
             throw new NotFoundException();
         }
     }
+
+
 }

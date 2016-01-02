@@ -1,192 +1,125 @@
-<?php
-/**
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @since         0.10.0
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
- */
-use Cake\Cache\Cache;
-use Cake\Core\Configure;
-use Cake\Datasource\ConnectionManager;
-use Cake\Error\Debugger;
-use Cake\Network\Exception\NotFoundException;
+<div class="wrapper">
+            <div class="grid_24">
+                <div class="flexslider">
+                    <ul class="slides">
+                        <li>
+                            <?php echo $this->Html->image('page1-slide1.jpg'); ?>
+                            <div class="flex-caption">
+                                <div class="caption-ident">
+                                    <a href="#">
+                                        <span class="slide-text-1">More than</span>
+                                        <span class="slide-text-2">18 years</span>
+                                        <span class="slide-text-3">of successful practice</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <?php echo $this->Html->image('page1-slide2.jpg'); ?>
+                            <div class="flex-caption">
+                                <div class="caption-ident">
+                                    <a href="#">
+                                        <span class="slide-text-1">we find </span>
+                                        <span class="slide-text-2">the best</span>
+                                        <span class="slide-text-3">professional solutions</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <?php echo $this->Html->image('page1-slide3.jpg'); ?>
+                            <div class="flex-caption">
+                                <div class="caption-ident">
+                                    <a href="#">
+                                        <span class="slide-text-1">precise and</span>
+                                        <span class="slide-text-2">impartial</span>
+                                        <span class="slide-text-3">approach</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <?php echo $this->Html->image('page1-slide4.jpg'); ?>
+                            <div class="flex-caption">
+                                <div class="caption-ident">
+                                    <a href="#">
+                                        <span class="slide-text-1">We Hold the </span>
+                                        <span class="slide-text-2">National</span>
+                                        <span class="slide-text-3">quality Standard</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
 
-$this->layout = false;
+                <div class="ident-bot-2">
+                    <div class="line-1"></div>
+                    <div class="offer-ident wrapper">
+                        <div class="offer">
+                            Our firm has <span class="color-1">extended experience</span>, and as you know, this is <span class="color-2">a cornerstone in such sphere like ours.</span>
+                        </div>
+                        <a class="offer-button" href="#"><span>Learn More</span></a>
+                    </div>
+                    <div class="line-1"></div>
+                </div>
 
-if (!Configure::read('debug')):
-    throw new NotFoundException();
-endif;
+                <div class="wrapper ident-bot-5">
+                    <div class="grid_8 alpha">
+                        <div class="block-1 maxheight">
+                            <h2 class="ident-bot-1">Welcome!</h2>
+                            <?php echo $this->Html->image('page1-img1.jpg',['class' => 'ident-bot-3']); ?>
+                            <p class="ident-bot-1">Areledusempquibdameto aurerumoms odes necessitatibus saepe eveniet utoluptates doloresed</p>
+                            <p class="ident-bot-1">Estudesu usandaeItaque earumum reruhit enetura sapientemi delectuuut reic </p>
+                            <a class="button" href="#">read more</a>
+                        </div>
+                    </div>
+                    <div class="grid_8">
+                        <div class="block-1 maxheight">
+                            <h2 class="ident-bot-2">Practice</h2>
+                            <p class="ident-bot-2">Areledusempquibdameto aurerumoms odes necessitatibus saepe eveniet utoluptates doloresed massa astum.</p>
+                            <ul class="list-1">
+                                <li><a href="#">Elder Abuse Cases</a></li>
+                                <li><a href="#">Employment Law</a></li>
+                                <li><a href="#">Family Law</a></li>
+                                <li><a href="#">Immigration Law</a></li>
+                                <li><a href="#">Insurance Law</a></li>
+                                <li><a href="#">Malpractice Law</a></li>
+                                <li><a href="#">Real Property Law</a></li>
+                                <li><a href="#">Securities Law</a></li>
+                                <li><a href="#">Workers' Compensation Law</a></li>
+                                <li><a href="#">Social Security Law</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="grid_8 omega">
+                        <div class="block-1 maxheight">
+                            <h2 class="ident-bot-2">Press Releases</h2>
+                            <p class="ident-bot-1"><strong>Areledusempquibdameto aurerumoms odes necessi tatibus saepe eveniet uto luptates doloresed</strong></p>
+                            <p class="ident-bot-1">Estudesu usandae Itaque earumum reruhit enetura sapientemi delectuuut reic iendis voluptatibusasstum maiores alias.</p>
+                            <p class="ident-bot-4">Asperiores repellat aurerum odes necessi tatibus saepe eveniet utoluptates estu usandaeItaque earum rerum hic tenetura sapiente delectus Estudesu usandaeItaque earumum reruhit enetura sapientemi delectuuut reic iendis voluptatibusasstum maiores alias.</p>
+                            <a class="button" href="#">read more</a>
+                        </div>
+                    </div>
+                </div>
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <?= $this->Html->charset() ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <?= $cakeDescription ?>
-    </title>
-    <?= $this->Html->meta('icon') ?>
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('cake.css') ?>
-</head>
-<body class="home">
-    <header>
-        <div class="header-image">
-            <?= $this->Html->image('http://cakephp.org/img/cake-logo.png') ?>
-            <h1>Get the Ovens Ready</h1>
-        </div>
-    </header>
-    <div id="content">
-        <div class="row">
-            <?php Debugger::checkSecurityKeys(); ?>
-            <div id="url-rewriting-warning" class="columns large-12 url-rewriting checks">
-                <p class="problem">URL rewriting is not properly configured on your server.</p>
-                <p>
-                    1) <a target="_blank" href="http://book.cakephp.org/3.0/en/installation.html#url-rewriting">Help me configure it</a>
-                </p>
-                <p>
-                    2) <a target="_blank" href="http://book.cakephp.org/3.0/en/development/configuration.html#general-configuration">I don't / can't use URL rewriting</a>
-                </p>
+                <div class="wrapper">
+                    <div class="grid_16 alpha rt-ident-bottom-1">
+                        <div class="rt-block-ident-1 col-separ">
+                            <h2 class="ident-bot-4">Need Practical Help?</h2>
+                            <p class="contact ident-bot-1"><a href="#">mr. John Mc’Gox</a>  (General Director)</p>
+                            <p class="ident-bot-1"><strong>Areledu sempquibd ameto aurerumoms odes necessitatibus saepe eniet utoluptates estudesu usandaeItaque earumum reruhic</strong></p>
+                            <p class="ident-bot-6">Etenetura sapientemi delectuuut reiciendis voluptatibus asstum maiores alias Asperiores repellat aurerum odes necessitatibus saepe eveniet utoluptates estu usandaeItaque earum rerum hic tenetura sapiente delectus</p>
+                            <a class="button" href="#">read more</a>
+                        </div>
+                    </div>
+                    <div class="grid_8 omega rt-ident-bottom-1">
+                        <h2 class="ident-bot-7">Testimonials</h2>
+                        <div class="testimonials">“Estudesu usandaeItaque earumum reruhitenetura sapientemi delectut reiciendis voluptatib sapientemi de lectuuut reiciendis voluptatibus...”</div>
+                        <div class="test-cont">
+                            mr. John Harris, New York <br/> <a href="#">demolink.org</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="columns large-5 platform checks">
-                <?php if (version_compare(PHP_VERSION, '5.4.16', '>=')): ?>
-                    <p class="success">Your version of PHP is 5.4.16 or higher.</p>
-                <?php else: ?>
-                    <p class="problem">Your version of PHP is too low. You need PHP 5.4.16 or higher to use CakePHP.</p>
-                <?php endif; ?>
-
-                <?php if (extension_loaded('mbstring')): ?>
-                    <p class="success">Your version of PHP has the mbstring extension loaded.</p>
-                <?php else: ?>
-                    <p class="problem">Your version of PHP does NOT have the mbstring extension loaded.</p>;
-                <?php endif; ?>
-
-                <?php if (extension_loaded('openssl')): ?>
-                    <p class="success">Your version of PHP has the openssl extension loaded.</p>
-                <?php elseif (extension_loaded('mcrypt')): ?>
-                    <p class="success">Your version of PHP has the mcrypt extension loaded.</p>
-                <?php else: ?>
-                    <p class="problem">Your version of PHP does NOT have the openssl or mcrypt extension loaded.</p>
-                <?php endif; ?>
-
-                <?php if (extension_loaded('intl')): ?>
-                    <p class="success">Your version of PHP has the intl extension loaded.</p>
-                <?php else: ?>
-                    <p class="problem">Your version of PHP does NOT have the intl extension loaded.</p>
-                <?php endif; ?>
-            </div>
-            <div class="columns large-6 filesystem checks">
-                <?php if (is_writable(TMP)): ?>
-                    <p class="success">Your tmp directory is writable.</p>
-                <?php else: ?>
-                    <p class="problem">Your tmp directory is NOT writable.</p>
-                <?php endif; ?>
-
-                <?php if (is_writable(LOGS)): ?>
-                    <p class="success">Your logs directory is writable.</p>
-                <?php else: ?>
-                    <p class="problem">Your logs directory is NOT writable.</p>
-                <?php endif; ?>
-
-                <?php $settings = Cache::config('_cake_core_'); ?>
-                <?php if (!empty($settings)): ?>
-                    <p class="success">The <em><?= $settings['className'] ?>Engine</em> is being used for core caching. To change the config edit config/app.php</p>
-                <?php else: ?>
-                    <p class="problem">Your cache is NOT working. Please check the settings in config/app.php</p>
-                <?php endif; ?>
-            </div>
-        </div>
-        <div class="row">
-            <div class="columns large-12 database checks">
-                <?php
-                    try {
-                        $connection = ConnectionManager::get('default');
-                        $connected = $connection->connect();
-                    } catch (Exception $connectionError) {
-                        $connected = false;
-                        $errorMsg = $connectionError->getMessage();
-                        if (method_exists($connectionError, 'getAttributes')):
-                            $attributes = $connectionError->getAttributes();
-                            if (isset($errorMsg['message'])):
-                                $errorMsg .= '<br />' . $attributes['message'];
-                            endif;
-                        endif;
-                    }
-                ?>
-                <?php if ($connected): ?>
-                    <p class="success">CakePHP is able to connect to the database.</p>
-                <?php else: ?>
-                    <p class="problem">CakePHP is NOT able to connect to the database.<br /><br /><?= $errorMsg ?></p>
-                <?php endif; ?>
-            </div>
-        </div>
-        <div class="row">
-            <div class="columns large-6">
-                <h3>Editing this Page</h3>
-                <ul>
-                    <li>To change the content of this page, edit: src/Template/Pages/home.ctp.</li>
-                    <li>You can also add some CSS styles for your pages at: webroot/css/.</li>
-                </ul>
-            </div>
-            <div class="columns large-6">
-                <h3>Getting Started</h3>
-                <ul>
-                    <li><a target="_blank" href="http://book.cakephp.org/3.0/en/">CakePHP 3.0 Docs</a></li>
-                    <li><a target="_blank" href="http://book.cakephp.org/3.0/en/tutorials-and-examples/bookmarks/intro.html">The 15 min Bookmarker Tutorial</a></li>
-                    <li><a target="_blank" href="http://book.cakephp.org/3.0/en/tutorials-and-examples/blog/blog.html">The 15 min Blog Tutorial</a></li>
-                </ul>
-                <p>
-            </div>
-        </div>
-        <hr/>
-        <div class="row">
-            <div class="columns large-12">
-                <h3 class="">More about Cake</h3>
-                <p>
-                    CakePHP is a rapid development framework for PHP which uses commonly known design patterns like Front Controller and MVC.
-                </p>
-                <p>
-                    Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.
-                </p>
-                <ul>
-                    <li><a href="http://cakefoundation.org/">Cake Software Foundation</a>
-                    <ul><li>Promoting development related to CakePHP</li></ul></li>
-                    <li><a href="http://www.cakephp.org">CakePHP</a>
-                    <ul><li>The Rapid Development Framework</li></ul></li>
-                    <li><a href="http://book.cakephp.org/3.0/en/">CakePHP Documentation</a>
-                    <ul><li>Your Rapid Development Cookbook</li></ul></li>
-                    <li><a href="http://api.cakephp.org/3.0/">CakePHP API</a>
-                    <ul><li>Quick Reference</li></ul></li>
-                    <li><a href="http://bakery.cakephp.org">The Bakery</a>
-                    <ul><li>Everything CakePHP</li></ul></li>
-                    <li><a href="http://plugins.cakephp.org">CakePHP plugins repo</a>
-                    <ul><li>A comprehensive list of all CakePHP plugins created by the community</li></ul></li>
-                    <li><a href="https://groups.google.com/group/cake-php">CakePHP Google Group</a>
-                    <ul><li>Community mailing list</li></ul></li>
-                    <li><a href="irc://irc.freenode.net/cakephp">irc.freenode.net #cakephp</a>
-                    <ul><li>Live chat about CakePHP</li></ul></li>
-                    <li><a href="https://github.com/cakephp/">CakePHP Code</a>
-                    <ul><li>For the Development of CakePHP Git repository, Downloads</li></ul></li>
-                    <li><a href="https://github.com/cakephp/cakephp/issues">CakePHP Issues</a>
-                    <ul><li>CakePHP issues and pull requests</li></ul></li>
-                    <li><a href="http://training.cakephp.org/">CakePHP Training</a>
-                    <ul><li>Learn to use the CakePHP framework</li></ul></li>
-                    <li><a href="http://certification.cakephp.org/">CakePHP Certification</a>
-                    <ul><li>Become a certified CakePHP developer</li></ul></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <footer>
-    </footer>
-</body>
-</html>
+</div>

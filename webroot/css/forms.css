@@ -1,0 +1,116 @@
+/* CONTACT FORM
+========================================================================= */
+#confirm {
+	position: relative;
+	height: auto;
+	padding-bottom: 40px;
+}
+#confirm  label {
+	display: block;
+	position: relative;
+	min-height: 50px;
+	width: 420px;
+}
+#confirm  label.message {
+	min-height: 316px;
+}
+#confirm input {
+	display: block;
+	margin: 0;
+	outline: none;
+	box-shadow: none !important;
+	padding: 0 12px;
+	width: 406px;
+	height: 38px;
+	font: 13px/18px "Trebuchet MS", sans-serif;
+	color: #8b8a8a;
+	background: #f2f2f2;
+	border:none;
+	border-left: 1px solid #dfdfdf;
+	border-top: 1px solid #dfdfdf;
+}
+#confirm textarea {
+	resize: none;
+	overflow: auto;
+	display: block;
+	margin: 0;
+	outline: none;
+	box-shadow: none !important;
+	padding: 5px 12px;
+	width: 525px;
+	height: 280px;
+	font: 13px/18px "Trebuchet MS", sans-serif;
+	color: #8b8a8a;
+	background: #f2f2f2;
+	border:none;
+	border-left: 1px solid #dfdfdf;
+	border-top: 1px solid #dfdfdf;
+}
+#confirm label > span {
+	color: #313124;
+	position:relative;
+	left: 10px;
+}
+#confirm .success {
+	color:#313124;
+	font-weight:bold;
+	display:none;
+	margin-bottom:10px;
+}
+#confirm  .empty, #confirm  .error {
+	font: 12px/18px Arial, sans-serif;
+	display:none;
+}
+#confirm .btns {
+	position: absolute;
+	right: 0;
+}
+#confirm .btns a {
+	margin-left: 12px;
+}
+
+/* MAP
+========================================================================= */
+dl.adress {
+	display: block;
+}
+dl.adress dt {margin-bottom:19px;}
+dl.adress dd {
+	width: 170px;
+}
+dl.adress dd span {
+	float: right;
+}
+.map-border {border: 4px solid #fff; margin-bottom:26px;}
+iframe {
+	width: 100%;
+	height: 292px;
+	margin:0;
+}
+
+/* MEDIA */
+/*==========================================*/
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+	#confirm input {
+		width: 300px;
+	}
+	#confirm textarea {
+		width: 424px;
+	}
+}
+@media only screen and (max-width: 767px) {
+	#confirm input {
+		width: 274px;
+	}
+	#confirm textarea {
+		width: 274px;
+	}
+}
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	#confirm input {
+		width: 394px;
+	}
+	#confirm textarea {
+		width: 394px;
+	}
+}

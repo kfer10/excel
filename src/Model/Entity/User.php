@@ -11,10 +11,14 @@ use Cake\ORM\Entity;
  * @property string $password
  * @property string $givenname
  * @property string $familyname
+ * @property \Cake\I18n\Time $birthday
  * @property string $address
  * @property string $suburb
- * @property string $postcode
- * @property string $country
+ * @property string $state
+ * @property int $postcode
+ * @property int $country
+ * @property int $phone
+ * @property int $mobile
  */
 class User extends Entity
 {
@@ -32,4 +36,9 @@ class User extends Entity
         '*' => true,
         'id' => false,
     ];
+
+    protected function _setPassword($password)
+    {
+        return (new DefaultPasswordHasher)->hash($password);
+    }
 }

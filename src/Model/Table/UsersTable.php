@@ -28,6 +28,10 @@ class UsersTable extends Table
         $this->displayField('id');
         $this->primaryKey('id');
 
+        $this->belongsTo('Countries', [
+            'foreignKey' => 'country_id'
+        ]);
+
     }
 
     /**
@@ -43,6 +47,7 @@ class UsersTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
+            ->add('email', 'valid', ['rule' => 'email'])
             ->requirePresence('email', 'create')
             ->notEmpty('email');
 
@@ -59,6 +64,11 @@ class UsersTable extends Table
             ->notEmpty('familyname');
 
         $validator
+            ->add('birthday', 'valid', ['rule' => 'date'])
+            ->requirePresence('birthday', 'create')
+            ->notEmpty('birthday');
+
+        $validator
             ->requirePresence('address', 'create')
             ->notEmpty('address');
 
@@ -67,13 +77,42 @@ class UsersTable extends Table
             ->notEmpty('suburb');
 
         $validator
+            ->requirePresence('state', 'create')
+            ->notEmpty('state');
+
+        $validator
+            ->add('postcode', 'valid', ['rule' => 'numeric'])
             ->requirePresence('postcode', 'create')
             ->notEmpty('postcode');
 
         $validator
+            ->add('country', 'valid', ['rule' => 'numeric'])
             ->requirePresence('country', 'create')
             ->notEmpty('country');
 
+        $validator
+            ->add('phone', 'valid', ['rule' => 'numeric'])
+            ->requirePresence('phone', 'create')
+            ->notEmpty('phone');
+
+        $validator
+            ->add('mobile', 'valid', ['rule' => 'numeric'])
+            ->requirePresence('mobile', 'create')
+            ->notEmpty('mobile');
+
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules)
+    {
+        $rules->add($rules->isUnique(['email']));
+        return $rules;
     }
 }

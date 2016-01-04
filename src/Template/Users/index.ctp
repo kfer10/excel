@@ -23,9 +23,11 @@
             <?php foreach ($users as $user): ?>
             <tr>
                 <td><?= $this->Number->format($user->id) ?></td>
+                <td><?= h($user->email) ?></td>
                 <td><?= h($user->password) ?></td>
                 <td><?= h($user->givenname) ?></td>
                 <td><?= h($user->familyname) ?></td>
+                <td><?= h($user->birthday) ?></td>
                 <td><?= h($user->address) ?></td>
                 <td><?= h($user->suburb) ?></td>
                 <td><?= h($user->postcode) ?></td>

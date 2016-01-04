@@ -22,17 +22,30 @@
                 <?php echo $this->Form->input('familyname',['label' => 'Last Name *','class'=>'long']); ?><br><br>
             </p>
             <p>
-                <?php echo $this->Form->input('birthday',['label' => 'D.O.B *','class'=>'date']); ?>
+                <label>Birthdate *</label>
+                <select class="date">
+                    <option value="1">01
+                    </option>
+                    <option value="2">02
+                    </option>
+                    <option value="3">03
+                    </option>
+                </select>
+                <select>
+                    <option value="1">January
+                    </option>
+                    <option value="2">February
+                    </option>
+                    <option value="3">March
+                    </option>
+                </select>
+                <input class="year" type="text" size="4" maxlength="4"/>e.g 1976
             </p>
             <p>
             <?php
                 $option = ['Male'=>'Male','Female'=>'Female'];
                 echo $this->Form->input('gender',['type'=>'radio','options'=>$option,'label'=>''],['class'=>'gender']);
             ?>
-            </p>
-            <p>
-                <?php echo $this->Form->input('phone',['label' => 'Phone *','class'=>'password']); ?><br><br>
-                <?php echo $this->Form->input('mobile',['label' => 'Mobile *','class'=>'password']); ?>
             </p>
         </fieldset>
 
@@ -43,9 +56,8 @@
             <p>
                 <?php echo $this->Form->input('address',['label' => 'Address *','class'=>'long']); ?><br><br>
                 <?php echo $this->Form->input('suburb',['label' => 'Suburb *','class'=>'long']); ?><br><br>
-                <?php echo $this->Form->input('state',['label' => 'State *','class'=>'long']); ?><br><br>
                 <?php echo $this->Form->input('postcode',['label' => 'Postcode *','class'=>'short-long']); ?><br><br>
-                <?php echo $this->Form->input('country_id',['label' => 'Country *','class'=>'long','options'=>$countries]); ?><br><br>
+                <?php echo $this->Form->input('Country',['label' => 'Country *','class'=>'long']); ?><br><br>
             </p>
             <div class="infobox"><h4>Extra Information</h4>
                 <p>Here comes some explaining text, sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>

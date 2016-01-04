@@ -11,6 +11,10 @@
     <h3><?= h($user->id) ?></h3>
     <table class="vertical-table">
         <tr>
+            <th><?= __('Email') ?></th>
+            <td><?= h($user->email) ?></td>
+        </tr>
+        <tr>
             <th><?= __('Password') ?></th>
             <td><?= h($user->password) ?></td>
         </tr>
@@ -31,16 +35,32 @@
             <td><?= h($user->suburb) ?></td>
         </tr>
         <tr>
-            <th><?= __('Postcode') ?></th>
-            <td><?= h($user->postcode) ?></td>
+            <th><?= __('State') ?></th>
+            <td><?= h($user->state) ?></td>
         </tr>
         <tr>
             <th><?= __('Id') ?></th>
             <td><?= $this->Number->format($user->id) ?></td>
         </tr>
         <tr>
+            <th><?= __('Postcode') ?></th>
+            <td><?= $this->Number->format($user->postcode) ?></td>
+        </tr>
+        <tr>
             <th><?= __('Country') ?></th>
             <td><?= $this->Number->format($user->country) ?></td>
+        </tr>
+        <tr>
+            <th><?= __('Phone') ?></th>
+            <td><?= $this->Number->format($user->phone) ?></td>
+        </tr>
+        <tr>
+            <th><?= __('Mobile') ?></th>
+            <td><?= $this->Number->format($user->mobile) ?></td>
+        </tr>
+        <tr>
+            <th><?= __('Birthday') ?></th>
+            <td><?= h($user->birthday) ?></td>
         </tr>
     </table>
 </div>

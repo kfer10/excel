@@ -15,13 +15,18 @@
     <fieldset>
         <legend><?= __('Edit User') ?></legend>
         <?php
+            echo $this->Form->input('email');
             echo $this->Form->input('password');
             echo $this->Form->input('givenname');
             echo $this->Form->input('familyname');
+            echo $this->Form->input('birthday');
             echo $this->Form->input('address');
             echo $this->Form->input('suburb');
+            echo $this->Form->input('state');
             echo $this->Form->input('postcode');
             echo $this->Form->input('country');
+            echo $this->Form->input('phone');
+            echo $this->Form->input('mobile');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

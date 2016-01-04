@@ -14,7 +14,7 @@ use Cake\ORM\Entity;
  * @property string $address
  * @property string $suburb
  * @property string $postcode
- * @property int $country
+ * @property string $country
  */
 class User extends Entity
 {

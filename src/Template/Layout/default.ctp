@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width; initial-scale=1.0" />
     <?php
       echo $this->Html->css(['style.css']);
-      echo $this->Html->css(['font-awesome.min.css']);
+      echo $this->Html->css(['font-awesome.min.css','font-awesome.css']);
       echo $this->Html->script(['jquery-1.7.2.min.js', 'superfish.js']);
       echo $this->Html->script(['jquery.flexslider-min.js']);
       echo $this->Html->script(['jquery.responsivemenu.js']);

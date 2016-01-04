@@ -3,6 +3,7 @@
 @import"superfish.css";
 @import"forms.css";
 @import"flexslider.css";
+@import"registration.css";
 
 html {overflow-y:scroll;}
 body {
@@ -269,7 +270,7 @@ nav {
 	.list-1 li a:hover {
 		color: #313124;
 	}
-	
+
 .list-2 li {
 	padding-left: 13px;
 	padding-top:2px;
@@ -541,14 +542,14 @@ footer {
 	width:32px;
 	height:32px;
 }
-	
+
 .list-soc li.icon-1 a {background: url('../img/list-services1.png') no-repeat;}
 .list-soc li.icon-2 a {background: url('../img/list-services2.png') no-repeat;}
 .list-soc li.icon-3 a {background: url('../img/list-services3.png') no-repeat;}
 .list-soc li.icon-4 a {background: url('../img/list-services4.png') no-repeat;}
 
 .list-soc li a:hover {background-position:0 -32px !important;}
-	
+
 
 /* MEDIA */
 /*==========================================*/
@@ -633,19 +634,4 @@ footer {
 	#newsletter-form input {
 		width: 200px;
 	}
-}
-
-/* Register
-========================================================================= */
-.register{
-    color: #000;
-}
-
-.register fieldset table label {
-    text-align: right;
-}
-
-.register table .error-message{
-    float: right;
-    color: #ff0000;
 }

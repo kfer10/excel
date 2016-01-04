@@ -71,7 +71,6 @@ class UsersTable extends Table
             ->notEmpty('postcode');
 
         $validator
-            ->add('country', 'valid', ['rule' => 'numeric'])
             ->requirePresence('country', 'create')
             ->notEmpty('country');
 

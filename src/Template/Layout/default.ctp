@@ -50,8 +50,16 @@
 <header>
     <div class="header-row-1">
         <div class="container_24">
-            <div class="login-register"><i class="fa fa-user"></i> <?php echo $this->Html->link('Login', ['prefix'=>false,'controller'=>'users','action'=>'login']); ?> |
-            <?php echo $this->Html->link(' Register', ['prefix'=>false,'controller'=>'users','action'=>'register']); ?></div>
+            <div class="login-register">
+            <?php
+            if($this->request->session()->check('Auth.User')){
+                    echo $this->element('navigation');
+              }else{ ?>
+                    <i class="fa fa-user"></i> <?php echo $this->Html->link('Login', ['prefix'=>false,'controller'=>'users','action'=>'login']); ?> |
+                                <?php echo $this->Html->link(' Register', ['prefix'=>false,'controller'=>'users','action'=>'register']);
+              }
+            ?>
+            </div>
             <div>
                 <h1><?= $this->Html->link('Excel Migration Services', ['controller'=>'pages', 'action' => 'home']) ?></h1>
                 <!-- menu -->

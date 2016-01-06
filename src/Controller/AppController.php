@@ -49,7 +49,7 @@ class AppController extends Controller
         $this->loadComponent('Auth', [
             'authenticate' => [
                 'Form' => [
-                    'fields' => ['username' => 'email_address', 'password' => 'password']
+                    'fields' => ['username' => 'email', 'password' => 'password']
                 ]],
             'authorize' => ['Controller'],
             'loginRedirect' => [
@@ -78,7 +78,7 @@ class AppController extends Controller
     public function isAuthorized($user)
     {
         // Admin can access every action
-        if ($user['user_type_id'] === 1 && isset($user['email_address'])) {
+        if ($user['user_type_id'] === 1 && isset($user['email'])) {
             return true;
         }
 

@@ -1,4 +1,7 @@
 
+<?php echo $this->Html->link('Logout', ['prefix'=>false,'controller'=>'users','action'=>'logout']); ?>
+
+<!--
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -12,7 +15,7 @@
           <ul class="nav navbar-nav" id="noDesign">
             <?php if($this->request->session()->check('Auth.User')){ ?>
               <?php if($this->request->session()->read('Auth.User.user_type_id') == 1) { ?>
-              <h5>Signed in as: Staff</h5>
+              <h5>Signed in as: Admin</h5>
 
               <li><?php echo $this->Html->link('Admin Panel', ['controller' => 'users', 'action' => 'index', 'prefix' => 'admin', '_full' => true]);
               } ?>
@@ -41,6 +44,6 @@
         </div>
       </div>
     </div>
-
+-->
 
 

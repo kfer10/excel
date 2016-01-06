@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\ORM\TableRegistry;
 
 /**
  * Users Controller
@@ -21,7 +22,7 @@ class UsersController extends AppController
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
-        $this->Auth->allow('register','edit','editpassword','viewprofile','logout');
+        $this->Auth->allow('register','logout');
     }
 
     public function login()
@@ -59,8 +60,11 @@ class UsersController extends AppController
      * @return void
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function view($id = null)
+    public function profile($id = null)
     {
+        if($id != $this->request->session()->read('Auth.User.id')){
+            $this->redirect(['action' => 'profile', $this->request->session()->read('Auth.User.id')]);
+        }
         $user = $this->Users->get($id, [
             'contain' => []
         ]);

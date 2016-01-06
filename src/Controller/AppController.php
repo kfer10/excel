@@ -51,13 +51,12 @@ class AppController extends Controller
                 'Form' => [
                     'fields' => ['username' => 'email', 'password' => 'password']
                 ]],
-            'authorize' => ['Controller'],
             'loginRedirect' => [
                 'controller' => 'pages',
                 'action' => 'home'
             ],
             'logoutRedirect' => [
-                'controller' => 'pages',
+                'controller' => 'Pages',
                 'action' => 'display',
                 'home'
             ]

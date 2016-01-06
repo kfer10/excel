@@ -1,16 +1,20 @@
+<?php $this->request->session()->check('Auth.User'); ?>
 
-<?php echo $this->Html->link('Logout', ['prefix'=>false,'controller'=>'users','action'=>'logout']); ?>
+<?php if($this->request->session()->read('Auth.User.user_type_id') == 2) { ?>
+<i class="fa fa-user"></i> <?php echo $this->Html->link('Profile', ['prefix'=>false,'controller'=>'users','action'=>'profile',$this->request->session()->read('Auth.User.id')]); ?> |
+<?php echo $this->Html->link('Logout', ['prefix'=>false,'controller'=>'users','action'=>'logout']);
+} ?>
+
+<?php if($this->request->session()->read('Auth.User.user_type_id') == 1) { ?>
+<i class="fa fa-user"></i> <?php echo $this->Html->link('Admin Panel', ['controller'=>'users','action'=>'profile',$this->request->session()->read('Auth.User.id')]); ?> |
+<?php echo $this->Html->link('Logout', ['prefix'=>false,'controller'=>'users','action'=>'logout']);
+} ?>
+
+
+
 
 <!--
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
 
-        </div>
         <div class="moduletable_leftmenu">
           <ul class="nav navbar-nav" id="noDesign">
             <?php if($this->request->session()->check('Auth.User')){ ?>
@@ -42,8 +46,6 @@
 
           </ul>
         </div>
-      </div>
-    </div>
 -->
 
 

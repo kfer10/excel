@@ -60,7 +60,7 @@ class UsersFixture extends TestFixture
             'suburb' => 'Lorem ipsum dolor sit amet',
             'state' => 'Lorem ipsum dolor sit amet',
             'postcode' => 1,
-            'country' => 1,
+            'country' => 'Lorem ipsum dolor sit amet',
             'phone' => 1,
             'mobile' => 1
         ],

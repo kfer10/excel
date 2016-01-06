@@ -5,9 +5,6 @@ use Cake\ORM\Entity;
 
 /**
  * Country Entity.
- *
- * @property int $id
- * @property string $country_name
  */
 class Country extends Entity
 {

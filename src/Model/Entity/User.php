@@ -2,6 +2,7 @@
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
+use Cake\Auth\DefaultPasswordHasher;
 
 /**
  * User Entity.
@@ -15,10 +16,10 @@ use Cake\ORM\Entity;
  * @property string $address
  * @property string $suburb
  * @property string $state
- * @property int $postcode
+ * @property string $postcode
  * @property int $country
- * @property int $phone
- * @property int $mobile
+ * @property string $phone
+ * @property string $mobile
  */
 class User extends Entity
 {

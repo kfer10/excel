@@ -78,6 +78,14 @@ form.register fieldset.row2
     padding:5px;
     float:left;
 }
+form.register fieldset.row2 .gender label
+{
+    width:70px;
+    float: right;
+    text-align: left;
+    margin-right: 15px;
+    margin-top:2px;
+}
 form.register fieldset.row3
 {
     border-top:1px solid #F1F1F1;
@@ -95,6 +103,14 @@ form.register fieldset.row4
     clear:both;
     width:500px;
 }
+form.register fieldset.row4 .terms label
+{
+    width:300px;
+    float: left;
+    text-align: left;
+    margin-right: 6px;
+    margin-top:2px;
+}
 form.register .infobox{
     float:right;
     margin-top:20px;
@@ -107,7 +123,7 @@ form.register .infobox{
 }
 form.register legend
 {
-    color: #abda0f;
+    color: #A3BE2E;
     padding:2px;
     margin-left: 14px;
     font-weight:bold;
@@ -115,6 +131,15 @@ form.register legend
     font-weight:100;
 }
 form.register label{
+    color:#444;
+    width:98px;
+    float: left;
+    text-align: right;
+    margin-right: 6px;
+    margin-top:2px;
+}
+
+form.register label.width{
     color:#444;
     width:98px;
     float: left;
@@ -189,7 +214,7 @@ form.register label.gender{
 
 .register .button
 {
-    background: #abda0f url(../img/overlay.png) repeat-x;
+    background: #A3BE2E url(../img/overlay.png) repeat-x;
     padding: 8px 10px 8px;
     color: #fff;
     text-decoration: none;
@@ -216,7 +241,6 @@ form.register input[type=checkbox] {
 form.register select
 {
     border: 1px solid #E1E1E1;
-    width: 130px;
     float:left;
     margin-bottom:3px;
     color: #505050;

@@ -30,7 +30,7 @@ img {
 /*  Header styles */
 h1 {float:left;
 	margin-left:5px;
-	padding-top:37px;
+	/* padding-top:37px; */
 }
 h1 a {
 	display: block;
@@ -122,18 +122,18 @@ nav {
 	padding-bottom:8px;
 }
 
-.login {
+.login-register {
     position: absolute;
     color: #fff;
     font-size: 12pt;
     left: 800px;
 }
 
-.login a {
+.login-register a {
     color: #fff;
 }
 
-.login a:hover {
+.login-register a:hover {
     color: #A3BE2E;
     text-decoration: underline;
 }
@@ -478,11 +478,30 @@ nav {
 	font:bold 14px/19px Arial, sans-serif;
 	text-transform: uppercase;
 	padding: 10px 12px;
+
+    border-top: 2px solid #CCCCCC;
+    border-right: 2px solid #CCCCCC;
+    border-bottom: 2px solid #CCCCCC;
+    border-left: 2px solid #CCCCCC;
 }
-	.button:hover {
-        color:#A3BE2E;
-		background-color:#393e42;
-	}
+.button:hover {
+    color:#A3BE2E;
+    background-color:#393e42;
+
+    border-top: 2px solid #CCCCCC;
+    border-right: 2px solid #CCCCCC;
+    border-bottom: 2px solid #CCCCCC;
+    border-left: 2px solid #CCCCCC;
+}
+.button:active {
+    color:#A3BE2E;
+    background-color:#393e42;
+
+    border-top: 3px solid #808080;
+    border-right: 3px solid #ededed;
+    border-bottom: 3px solid #ededed;
+    border-left: 3px solid #808080;
+}
 .link-1 {
 	color:#A3BE2E;
 	font-weight:bold;

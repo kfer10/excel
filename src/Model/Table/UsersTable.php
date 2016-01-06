@@ -6,6 +6,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\Auth\DefaultPasswordHasher;
 
 /**
  * Users Model
@@ -28,6 +29,10 @@ class UsersTable extends Table
         $this->displayField('id');
         $this->primaryKey('id');
 
+        $this->belongsTo('UserTypes', [
+            'foreignKey' => 'user_type_id'
+        ]);
+
         $this->belongsTo('Countries', [
             'foreignKey' => 'country_id'
         ]);
@@ -47,58 +52,75 @@ class UsersTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->add('email', 'valid', ['rule' => 'email'])
+            ->add('email', 'valid', ['rule' => 'email','message' => 'Please enter a valid e-mail address'])
             ->requirePresence('email', 'create')
-            ->notEmpty('email');
+            ->notEmpty('email','Please enter an email address')
+            ->add('confirm_email', 'no-misspelling', [
+                'rule' => ['compareWith', 'email'],
+                'message' => 'Email does not match',]);
 
         $validator
             ->requirePresence('password', 'create')
-            ->notEmpty('password');
+            ->add('password', [
+                'length' => [
+                    'rule' => ['minLength', 4],
+                    'message' => 'Password needs to be at least 4 characters long',]])
+            ->notEmpty('password','Please enter a password')
+            ->notEmpty('confirm_password','Please confirm password')
+            ->add('confirm_password', 'no-misspelling', [
+                'rule' => ['compareWith', 'password'],
+                'message' => 'Passwords do not match',]);
 
         $validator
             ->requirePresence('givenname', 'create')
-            ->notEmpty('givenname');
+            ->notEmpty('givenname','Please enter your given name');
 
         $validator
             ->requirePresence('familyname', 'create')
-            ->notEmpty('familyname');
+            ->notEmpty('familyname','Please enter your family name');
 
         $validator
             ->add('birthday', 'valid', ['rule' => 'date'])
             ->requirePresence('birthday', 'create')
-            ->notEmpty('birthday');
+            ->notEmpty('birthday','Please enter your date of birth');
 
         $validator
             ->requirePresence('address', 'create')
-            ->notEmpty('address');
+            ->notEmpty('address','Please enter your address');
 
         $validator
             ->requirePresence('suburb', 'create')
-            ->notEmpty('suburb');
+            ->notEmpty('suburb','Please enter your suburb');
 
         $validator
             ->requirePresence('state', 'create')
-            ->notEmpty('state');
+            ->notEmpty('state','Please enter your state');
 
         $validator
             ->add('postcode', 'valid', ['rule' => 'numeric'])
             ->requirePresence('postcode', 'create')
-            ->notEmpty('postcode');
+            ->notEmpty('postcode','Please enter your postcode');
 
         $validator
-            ->add('country', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('country', 'create')
-            ->notEmpty('country');
+            ->add('country_id', 'valid', ['rule' => 'numeric'])
+            ->requirePresence('country_id', 'create')
+            ->notEmpty('country_id','Please your a country');
 
         $validator
             ->add('phone', 'valid', ['rule' => 'numeric'])
             ->requirePresence('phone', 'create')
-            ->notEmpty('phone');
+            ->notEmpty('phone','Please enter your phone number');
 
         $validator
             ->add('mobile', 'valid', ['rule' => 'numeric'])
             ->requirePresence('mobile', 'create')
-            ->notEmpty('mobile');
+            ->allowEmpty('mobile');
+
+        $validator
+            ->add('terms', 'boolean', [
+                'rule' => ['comparison', '!=', 0],
+                'message' => 'Please accept the terms and conditions'
+            ]);
 
         return $validator;
     }

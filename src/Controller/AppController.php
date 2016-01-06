@@ -16,6 +16,7 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
+use Cake\I18n\Time;
 
 /**
  * Application Controller
@@ -39,10 +40,28 @@ class AppController extends Controller
      */
     public function initialize()
     {
-        parent::initialize();
-
-        $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+        $this->loadComponent('RequestHandler');
+        // added in line to format date correctly
+        Time::$defaultLocale = 'en-AU';
+        Time::setToStringFormat('dd/MM/YYYY');
+
+        $this->loadComponent('Auth', [
+            'authenticate' => [
+                'Form' => [
+                    'fields' => ['username' => 'email_address', 'password' => 'password']
+                ]],
+            'authorize' => ['Controller'],
+            'loginRedirect' => [
+                'controller' => 'pages',
+                'action' => 'home'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'pages',
+                'action' => 'display',
+                'home'
+            ]
+        ]);
     }
 
     /**
@@ -51,12 +70,19 @@ class AppController extends Controller
      * @param \Cake\Event\Event $event The beforeRender event.
      * @return void
      */
-    public function beforeRender(Event $event)
+    public function beforeFilter(Event $event)
     {
-        if (!array_key_exists('_serialize', $this->viewVars) &&
-            in_array($this->response->type(), ['application/json', 'application/xml'])
-        ) {
-            $this->set('_serialize', true);
+        $this->Auth->allow(['index', 'view', 'display']);
+    }
+
+    public function isAuthorized($user)
+    {
+        // Admin can access every action
+        if ($user['user_type_id'] === 1 && isset($user['email_address'])) {
+            return true;
         }
+
+        // Default deny
+        return false;
     }
 }

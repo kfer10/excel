@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * Users Controller
@@ -16,6 +17,14 @@ class UsersController extends AppController
      *
      * @return void
      */
+
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $this->Auth->allow('register','edit','editpassword','viewprofile','logout');
+    }
+
+
     public function index()
     {
         $this->set('users', $this->paginate($this->Users));
@@ -44,41 +53,19 @@ class UsersController extends AppController
 
     public function login()
     {
-        $this->loadModel('Memberships');
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();
-            $user_id = $this->request->session()->read('Auth.User.id');
-            //  $isEmpty = $user->isEmpty();
             if ($user) {
-                $memberships = TableRegistry::get('Memberships');
-                $user_details = $memberships->find()
-                    ->where(['user_id' => $user['id']])
-                    ->orderDesc('id')
-                    ->first();
-
-                if ($user_details) {
-                    if ($user_details->status_id == 1) {
-                        $this->Auth->setUser($user);
-
-                        if ($user['user_type_id'] === 1) {
-                            return $this->redirect($this->Auth->redirectUrl(['controller' => 'admin/users', 'action' => 'index']));
-                        } else {
-                            return $this->redirect($this->Auth->redirectUrl(['controller' => 'users', 'action' => 'home']));
-
-                        }
-                    } elseif ($user_details->status_id != 1) {
-                        $this->Auth->setUser($user);
-                        $this->Flash->error('Your Membership has expired, Please follow the steps to Renew.');
-                        return $this->redirect(['controller' => 'users', 'action' => 'renew']);
-                    }
-
-                }
-
-
-            } elseif (!$user) {
-                $this->Flash->error('Incorrect Email Address or Password');
+                $this->Auth->setUser($user);
+                return $this->redirect($this->Auth->redirectUrl());
             }
+            $this->Flash->error(__('Invalid username or password, try again'));
         }
+    }
+
+    public function logout()
+    {
+        return $this->redirect($this->Auth->logout());
     }
 
     /**
@@ -89,6 +76,7 @@ class UsersController extends AppController
     public function register()
     {
         $countries = $this->Users->Countries->find('list');
+        $userTypes = $this->Users->UserTypes->find('list', ['limit' => 200]);
 
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
@@ -101,7 +89,7 @@ class UsersController extends AppController
             }
         }
 
-        $this->set(compact('user','countries'));
+        $this->set(compact('user','countries','userTypes'));
         $this->set('_serialize', ['user']);
     }
 

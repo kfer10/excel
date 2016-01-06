@@ -50,7 +50,7 @@
 <header>
     <div class="header-row-1">
         <div class="container_24">
-            <div class="login"><i class="fa fa-user"></i> <?php echo $this->Html->link('Login', ['prefix'=>false,'controller'=>'users','action'=>'login']); ?> |
+            <div class="login-register"><i class="fa fa-user"></i> <?php echo $this->Html->link('Login', ['prefix'=>false,'controller'=>'users','action'=>'login']); ?> |
             <?php echo $this->Html->link(' Register', ['prefix'=>false,'controller'=>'users','action'=>'register']); ?></div>
             <div>
                 <h1><?= $this->Html->link('Excel Migration Services', ['controller'=>'pages', 'action' => 'home']) ?></h1>
@@ -98,7 +98,7 @@
     <div class="container_24">
         <div class="wrapper">
             <div class="grid_24">
-                <div class="policy">LawyersCo &copy; 2012 | <a href="privacy.php">Privacy policy</a> <div><!--{%FOOTER_LINK} --></div></div>
+                <div class="policy">EMS &copy; 2012 | <a href="privacy.php">Privacy policy</a> <div><!--{%FOOTER_LINK} --></div></div>
                 <ul class="list-soc">
                     <li class="icon-1"><a href="#"></a></li>
                     <li class="icon-2"><a href="#"></a></li>

@@ -1,17 +1,18 @@
 <?php
 namespace App\Model\Table;
 
-use App\Model\Entity\Country;
+use App\Model\Entity\UserType;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Countries Model
+ * UserTypes Model
  *
+ * @property \Cake\ORM\Association\HasMany $Users
  */
-class CountriesTable extends Table
+class UserTypesTable extends Table
 {
 
     /**
@@ -22,14 +23,11 @@ class CountriesTable extends Table
      */
     public function initialize(array $config)
     {
-        parent::initialize($config);
-
-        $this->table('countries');
-        $this->displayField('country_name');
+        $this->table('user_types');
+        $this->displayField('user_type_name');
         $this->primaryKey('id');
-
         $this->hasMany('Users', [
-            'foreignKey' => 'country_id'
+            'foreignKey' => 'user_type_id'
         ]);
     }
 
@@ -46,8 +44,8 @@ class CountriesTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->requirePresence('country_name', 'create')
-            ->notEmpty('country_name');
+            ->requirePresence('user_type_name', 'create')
+            ->notEmpty('user_type_name');
 
         return $validator;
     }

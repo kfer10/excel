@@ -47,6 +47,7 @@ class AppController extends Controller
         Time::setToStringFormat('dd/MM/YYYY');
 
         $this->loadComponent('Auth', [
+            'authorize' => ['Controller'],
             'authenticate' => [
                 'Form' => [
                     'fields' => ['username' => 'email', 'password' => 'password']

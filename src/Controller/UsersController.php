@@ -25,6 +25,17 @@ class UsersController extends AppController
         $this->Auth->allow('register','logout');
     }
 
+    public function isAuthorized($user)
+    {
+        // All registered users can add articles
+        if (in_array($this->request->action,['logout','profile','edit'])) {
+            return true;
+        }
+
+
+        return parent::isAuthorized($user);
+    }
+
     public function login()
     {
         if ($this->request->is('post')) {
@@ -43,16 +54,12 @@ class UsersController extends AppController
         return $this->redirect(['controller' => 'users', 'action' => 'login']);
     }
 
-    public function index()
+    public function viewall()
     {
         $this->set('users', $this->paginate($this->Users));
         $this->set('_serialize', ['users']);
     }
 
-    public function isAuthorized($user)
-    {
-        return parent::isAuthorized($user);
-    }
     /**
      * View method
      *
@@ -66,7 +73,7 @@ class UsersController extends AppController
             $this->redirect(['action' => 'profile', $this->request->session()->read('Auth.User.id')]);
         }
         $user = $this->Users->get($id, [
-            'contain' => []
+            'contain' => ['Countries']
         ]);
         $this->set('user', $user);
         $this->set('_serialize', ['user']);
@@ -106,19 +113,24 @@ class UsersController extends AppController
      */
     public function edit($id = null)
     {
+        if($id != $this->request->session()->read('Auth.User.id')){
+            $this->redirect(['action' => 'edit', $this->request->session()->read('Auth.User.id')]);
+        }
         $user = $this->Users->get($id, [
-            'contain' => []
+            'contain' => ['Countries']
         ]);
+        $countries = $this->Users->Countries->find('list');
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'profile',$id]);
             } else {
                 $this->Flash->error(__('The user could not be saved. Please, try again.'));
             }
         }
-        $this->set(compact('user'));
+        $this->set(compact('user','countries','userTypes'));
         $this->set('_serialize', ['user']);
     }
 

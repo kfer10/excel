@@ -1,3 +1,4 @@
+<?php $this->Form->templates(['dateWidget' => '{{day}}{{month}}{{year}}']); ?>
 
 <div>
     <?= $this->Form->create($user,['class'=>'register', 'novalidate' => true]) ?>

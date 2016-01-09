@@ -13,6 +13,7 @@ use Cake\Auth\DefaultPasswordHasher;
  * @property string $givenname
  * @property string $familyname
  * @property \Cake\I18n\Time $birthday
+ * @property string $gender
  * @property string $address
  * @property string $suburb
  * @property string $state

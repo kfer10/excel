@@ -85,6 +85,10 @@ class UsersTable extends Table
             ->notEmpty('birthday','Please enter your date of birth');
 
         $validator
+            ->requirePresence('gender', 'create')
+            ->notEmpty('gender','Please enter your gender');
+
+        $validator
             ->requirePresence('address', 'create')
             ->notEmpty('address','Please enter your address');
 

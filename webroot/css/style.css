@@ -3,7 +3,7 @@
 @import"superfish.css";
 @import"forms.css";
 @import"flexslider.css";
-@import"registration.css";
+@import"registration-view.css";
 
 html {overflow-y:scroll;}
 body {

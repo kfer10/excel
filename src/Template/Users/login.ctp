@@ -4,7 +4,7 @@
     <div class="login">
       <h1>Login</h1>
       <?= $this->Flash->render('auth') ?>
-      <?= $this->Form->create() ?>
+      <?= $this->Form->create('login',['novalidate'=>true]) ?>
         <p><?= $this->Form->input('email',['label'=>false,'placeholder'=>'Email Address']); ?><br>
         <?= $this->Form->input('password',['label'=>false,'placeholder'=>'Password']); ?></p>
         <p class="remember_me">

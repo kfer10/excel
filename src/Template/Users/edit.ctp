@@ -1,34 +1,31 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $user->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?></li>
-    </ul>
-</nav>
-<div class="users form large-9 medium-8 columns content">
-    <?= $this->Form->create($user) ?>
-    <fieldset>
-        <legend><?= __('Edit User') ?></legend>
-        <?php
-            echo $this->Form->input('email');
-            echo $this->Form->input('password');
-            echo $this->Form->input('givenname');
-            echo $this->Form->input('familyname');
-            echo $this->Form->input('birthday');
-            echo $this->Form->input('address');
-            echo $this->Form->input('suburb');
-            echo $this->Form->input('state');
-            echo $this->Form->input('postcode');
-            echo $this->Form->input('country');
-            echo $this->Form->input('phone');
-            echo $this->Form->input('mobile');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+<?php $this->Form->templates(['dateWidget' => '{{day}}{{month}}{{year}}']); ?>
+
+<div class="users-view">
+    <center><h3>Edit Profile</h3></center> <span class="id">ID: #<?= h($user->id) ?></span>
+    <?= $this->Form->create($user,['novalidate'=>true,'class'=>'register']) ?>
+        <fieldset class="edit">
+            <legend></legend><br>
+            <p>Personal Information</p>
+            <?php echo $this->Form->input('givenname',['label'=>'First Name: ']); ?><br><br>
+            <?php echo $this->Form->input('familyname',['label'=>'Last Name: ']); ?><br><br><br>
+            <?php echo $this->Form->input('gender',['label'=>'Gender: ']); ?><br><br>
+            <?php echo $this->Form->input('birthday',['label'=>'Birthday: ']); ?><br><br><br>
+
+
+            <p>Address</p>
+            <?php echo $this->Form->input('address',['label'=>'Address: ']); ?><br><br>
+            <?php echo $this->Form->input('suburb',['label'=>'Suburb: ']); ?><br><br>
+            <?php echo $this->Form->input('state',['label'=>'State: ']); ?><br><br>
+            <?php echo $this->Form->input('postcode',['label'=>'Postcode: ']); ?><br><br>
+            <?php echo $this->Form->input('country_id',['label' => 'Country','class'=>'long','options'=>$countries]); ?><br><br><br>
+
+            <p>Contact Information</p>
+            <?php echo $this->Form->input('email',['label'=>'Email Address: ']); ?><br><br>
+            <?php echo $this->Form->input('phone',['label'=>'Phone: ']); ?><br><br>
+            <?php echo $this->Form->input('mobile',['label'=>'Mobile: ']); ?><br><br><br>
+
+            <?= $this->Form->button(__('Submit')) ?><Br><br>
+        </fieldset>
     <?= $this->Form->end() ?>
 </div>
+

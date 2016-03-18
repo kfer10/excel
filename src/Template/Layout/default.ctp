@@ -61,12 +61,12 @@
             ?>
             </div>
             <div>
-                <h1><?= $this->Html->link('Excel Migration Services', ['controller'=>'pages', 'action' => 'home']) ?></h1>
+                <h1><?= $this->Html->link('Excel Migration Services', ['controller'=>'pages']) ?></h1>
                 <!-- menu -->
                 <nav>
                     <div id="menu-icon">Menu</div>
                     <ul class="sf-menu">
-                        <li><?= $this->Html->link('Home', ['controller'=>'pages', 'action' => 'home']) ?></li>
+                        <li><a href="<?php echo $this->Url->build(["controller"=>"pages"]); ?>">Home</a></li>
                         <li><?= $this->Html->link('About Us', ['controller'=>'pages', 'action' => 'about']) ?>
                             <ul>
                                 <li><a href="#">History</a></li>

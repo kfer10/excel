@@ -1,4 +1,7 @@
 .idea/workspace.xml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/copyright/profiles_settings.xml
 logs/error.log
 tmp/cache/persistent/myapp_cake_core_translations_cake_en__u_s
 tmp/cache/persistent/myapp_cake_core_translations_debug_kit_en__u_s
